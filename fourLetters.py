@@ -1,4 +1,4 @@
-__author__ = 'LPC'
+__author__ = 'TorbenJ'
 
 from itertools import permutations, count
 
