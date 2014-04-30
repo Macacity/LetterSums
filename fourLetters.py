@@ -1,21 +1,27 @@
 __author__ = 'LPC'
 
-length = 4
-number = 42
-
 from itertools import permutations, count
-alphabet = "abcdefghijklmnopqrstuvwxyz"
 
-alphadict = dict(zip(alphabet, count(1)))
 
-print(alphadict)
-print("######")
+def get_combinations(number=42, length=4):
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
 
-wordlist = permutations(alphabet, length)
+    alphadict = dict(zip(alphabet, count(1)))
 
-for permutation in wordlist:
-    i = 0
-    for letter in permutation:
-        i += alphadict[letter]
-    if i == number:
-        print("".join(permutation))
+    wordlist = permutations(alphabet, length)
+
+    result = list()
+    for permutation in wordlist:
+        i = 0
+        for letter in permutation:
+            i += alphadict[letter]
+        if i == number:
+            result.append("".join(permutation))
+
+    return result
+
+
+if __name__ == "__main__":
+    import pprint
+
+    pprint.pprint(get_combinations())
